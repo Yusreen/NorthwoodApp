@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memos</title>
+
+  <!--CSS-->
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+
+  <!--Scripts-->
+  <!--<script src="../scripts/checkReminders.js"></script>-->
+  <script src="../scripts/memos.js"></script>
+  <script src="../scripts/memoVoice.js"></script>
+
+</head>
+
+<body onload="displayMemos()" class="container">
+  <h1 style="margin-top: 5%; text-align: center">Your Memos</h1>
+  <hr>
+  <div class="row">
+    <div class="twelve columns">
+      <button class="u-full-width" onclick="memoRecog()">Use your voice</button>
+    </div>
+  </div>
+  <form onsubmit="submitMemo()">
+    <div class="row">
+      <div class="twelve columns">
+        <label for="memoText">Type your memo here:</label>
+        <input type="text" id="memoText" class="u-full-width" placeholder="Your memo...">
+        <button type="submit" class="u-full-width">Submit</button>
+      </div>
+    </div>
+  </form>
+  <!--To edit a memo-->
+  <div class="row">
+    <div class="twelve columns" id="edit-popup" style="display: none;">
+      <textarea id="text-edit"></textarea>
+      <button id="closeButton">Close and Save</button>
+    </div>
+  </div>
+  <hr>
+  <h3>View your memos here:</h3>
+  <div class="row">
+    <div class="twelve columns" id="memoListSpace">
+      <table id="memoList" class="u-full-width">
+        <thead>
+          <tr>
+            <th>Created on:</th>
+            <th>Memo:</th>
+            <th colspan="2">Action:</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="twelve columns">
+      <a href="homepage.html" class="button u-full-width">return to homepage</a>
+    </div>
+  </div>
+</body>
+
+</html>

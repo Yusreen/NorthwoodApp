@@ -1,0 +1,20 @@
+/*
+Author: Thomas Brun
+*/
+body{
+  font-family: Calibri, sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #ffffff;
+  background-color:	#000000;
+  align-content: center;
+}
+.con { margin:100px auto; max-width:650px;}
+
+#calendar {
+	position: absolute;
+    top: 32%;
+    left: 32%;
+    margin-top: -50px;
+    margin-left: -50px;
+    
+}

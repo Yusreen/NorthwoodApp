@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title id="title">Reminders</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SCRIPTS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script src="../scripts/createAReminder.js" type="text/javascript"></script>
+  <script src="../scripts/checkReminders.js" type="text/javascript"></script>
+  <script src="../scripts/createVoice.js" type="text/javascript"></script>
+  <script src="../scripts/ViewReminders.js" type="text/javascript"></script>
+
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+
+</head>
+
+<body onload="showReminders(); checkReminders()" class="container">
+
+  <!-- Primary Page Layout
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <h2 id="time" style="text-align:center">
+    The time is currently not available.
+  </h2>
+  <hr>
+  <form id="reminderForm" onsubmit="return false">
+    <div class="row">
+      <h3>Let us remind you of a task!</h3>
+      <div>
+        <label for="reminderTitle">Name your reminder</label>
+        <input class="u-full-width" type="text" id = "name">
+      </div>
+      <div class="three columns">
+        <label for="date">Pick a date:</label>
+        <input class="u-full-width" type="date" id="date" required>
+      </div>
+      <div class="four columns">
+        <label for="hour">Enter an hour:</label>
+        <input class="u-full-width" type="number" id="hour" min="0" max="23" required>
+      </div>
+      <div class="four columns">
+        <label for="minute">Enter a minute:</label>
+        <input class="u-full-width" type="number" id="minute" min="0" max="59" required>
+      </div>
+    </div>
+    <h3>What do you want us to remind you of?</h3>
+    <input type="button" class="button u-full-width" onclick="reminderText()" value="Start Voice Entry for Task">
+    <form id="repetition">
+      <input type="radio" value="once" name="repetitionSelector" id="repetitionChoice1">
+      <label for="repetitionChoice1">Once</label>
+      <input type="radio" value="daily" name="repetitionSelector" id="repetitionChoice2">
+      <label for="repetitionChoice2">Daily</label>
+      <input type="radio" value="weekly" name="repetitionSelector" id="repetitionChoice3">
+      <label for="repetitionChoice3">Weekly</label>
+      <input type="radio" value="monthly" name="repetitionSelector" id="repetitionChoice4">
+      <label for="repetitionChoice4">Monthly</label>
+      <input type="radio" value="yearly" name="repetitionSelector" id="repetitionChoice5">
+      <label id="repetitionChoice5">Yearly</label>
+    </form>>
+    <!--<input type="text" id="task" class="u-full-width" col required>-->
+    <textarea id="task" class="u-max-full-width" rows="10" cols="250" placeholder="To do..."></textarea>
+    <button type="submit" class="button u-full-width" onclick="saveReminder()">
+      Submit
+    </button>
+  </form>
+  <!-- End of the create portion, beginning the view -->
+    <div id="edit-popup" style="display: none;" class="row u-full-width">
+    <textarea id="text-edit" class="row u-full-width"></textarea>
+    <button id="closeButton" class="row u-full-width">Close and Save</button>
+  </div>
+  <h5>This is your list of Reminders</h5>
+    <div class="twelve columns" id="listSpace">
+      <table id="memoList" class="u-full-width">
+        <thead>
+          <tr>
+            <th>Created for:</th>
+            <th>Name:</th>
+            <th>Reminder:</th>
+            <th colspan="3">Actions:</th>
+          </tr>
+        </thead>
+        <tbody id="reminderList">
+        </tbody>
+      </table>
+    </div>
+
+  <!-- End Document
+      –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+
+</html>
